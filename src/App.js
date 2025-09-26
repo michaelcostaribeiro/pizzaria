@@ -19,7 +19,7 @@ import Cadastro from './pages/cadastro/Cadastro';
 import { AuthProvider } from './context/context';
 import { auth } from './firebase/config';
 import Editar from './pages/editar/Editar';
-import AddFlavor from './components/AddFlavor/AddFlavor';
+import AddFlavor from './pages/AddFlavor/AddFlavor';
 
 
 function App() {
@@ -31,8 +31,6 @@ function App() {
     })
   },[userAuthentication])
 
-  const testUser = auth.currentUser;
-  console.log(testUser)
 
   return (
     <>

@@ -26,3 +26,20 @@
     display: flex;
     gap: .25em;
 }
+
+.flavorsList{
+    list-style: none;
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+    max-width: 90%;
+    justify-content: center;
+}
+.flavorsList li{
+    background-color: #4CAF50;
+    padding: .25em;
+    border-radius: .25em;
+}
+.flavorsList i{
+    display: inline;
+}
