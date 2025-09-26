@@ -40,3 +40,15 @@ input[type='submit']{
     font-size: 1.1em;
     font-weight: 500;
 }
+
+.loading{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #212121;
+    background-color: #F5F5F5;
+    font-size: 3em;
+    height: 100vh;
+    position: absolute;
+}
