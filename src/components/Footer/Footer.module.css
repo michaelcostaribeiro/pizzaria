@@ -1,0 +1,35 @@
+.Footer {
+    text-align: center;
+    padding: .5em 0;
+    width: 100%;
+}
+
+.Footer p {
+    padding: .5em 0;
+}
+
+
+.Footer,
+.Footer p,
+.Footer span,
+.Footer i {
+    background-color: #333;
+    color: #fff;
+    font-size: .7em;
+}
+
+.Footer ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: .5em;
+    font-size: 2em;
+}
+
+.Footer ul li {
+    transition: .25s;
+}
+
+.Footer ul li:hover {
+    color: rgb(0, 0, 182);
+}

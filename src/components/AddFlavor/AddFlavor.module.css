@@ -1,0 +1,28 @@
+.addFlavor{
+    flex: 1;
+}
+.addFlavor form{
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    padding: 1em 0;
+    background-color: #cccccc;
+}
+.addFlavor input[type='submit']{
+    padding: .25em .75em;
+}
+
+.addFlavor input[type='text'],
+.addFlavor input[type='number'],
+.addFlavor button{
+    padding: .25em .5em;
+    width: 80%;
+}
+.addIngredients{
+    display: flex;
+    gap: .25em;
+}

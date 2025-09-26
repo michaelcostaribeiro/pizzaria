@@ -1,0 +1,36 @@
+.edit{
+    flex: 1;
+}
+.edit div{
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+
+}
+.edit ul{
+    list-style: none;
+}
+.edit ul li{
+    background-color: #4CAF50;
+    padding: .2em;
+    border-radius: .25em;
+    margin-bottom: .25em;
+}
+.edit a{
+    border: 1px solid #212121;
+    background-color: #D32F2F;
+    color: #212121;
+    font-size: 1.25em;
+    padding: .5em .25em;
+    text-decoration: none;
+    border-radius: .5em;
+    transition: .25s;
+}
+.edit a:hover{
+    background-color: #212121;
+    color: #D32F2F;
+}

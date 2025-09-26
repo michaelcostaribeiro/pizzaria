@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+// hooks
+import { Routes,Route, BrowserRouter} from 'react-router-dom'
+import { onAuthStateChanged } from 'firebase/auth';
+import { useState, useEffect } from 'react';
+
+// components
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+
+// css
 import './App.css';
 
+// pages
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Cadastro from './pages/cadastro/Cadastro';
+
+// context
+import { AuthProvider } from './context/context';
+import { auth } from './firebase/config';
+import Editar from './pages/editar/Editar';
+import AddFlavor from './components/AddFlavor/AddFlavor';
+
+
 function App() {
+  const [user, setUser] = useState(undefined)
+  const [userAuthentication] = useState(auth)
+  useEffect(() => {
+    onAuthStateChanged(userAuthentication, (user) => {
+      setUser(user);
+    })
+  },[userAuthentication])
+
+  const testUser = auth.currentUser;
+  console.log(testUser)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AuthProvider value={{ user }}>
+        <BrowserRouter>
+          <Header/>
+          <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path='/login' element={<Login/>} />
+            <Route path='/register' element={<Cadastro/>} />
+            <Route path='/edit' element={<Editar/>} />
+            <Route path='/edit/addFlavor' element={<AddFlavor/>} />
+          </Routes>
+        </BrowserRouter>
+        <Footer/>
+      </AuthProvider>
+    </>
   );
 }
 

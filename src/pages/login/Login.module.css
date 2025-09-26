@@ -1,0 +1,33 @@
+.formContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.loginForm{
+    position: relative;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5em 1em;
+    width: 80%;
+    min-height: 30%;
+    gap: .5em;
+    z-index: 2;
+}
+
+.loginForm h2{
+    font-size: 2em;
+    text-align: center;
+}
+.loginForm input{
+    width: 100%;
+    padding: .2em .1em;
+}
+
+.loginForm a{
+    text-align: center;
+    color: rgb(156, 0, 0);
+}

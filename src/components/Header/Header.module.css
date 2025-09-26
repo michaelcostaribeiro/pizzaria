@@ -1,0 +1,30 @@
+.NavHeader{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    
+    max-width: 100vw;
+    backdrop-filter: blur(5px);  
+    position: sticky;
+    top: 0;
+    font-size: 1.25em;
+
+    
+
+    a,i{
+        text-decoration: none;
+        color: black;
+        transition: .5s;
+    }
+    a:hover,i:hover{
+        color: orange;
+    }
+    span{
+        text-transform: uppercase;
+    }
+}
+.NavHeader nav {
+    display: flex;
+    gap: 1em;
+}
