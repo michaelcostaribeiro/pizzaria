@@ -19,6 +19,7 @@ import Cadastro from './pages/cadastro/Cadastro';
 import { AuthProvider } from './context/context';
 import { auth } from './firebase/config';
 import Editar from './pages/editar/Editar';
+import EditarSabor from './pages/editarSabor/EditarSabor';
 import AddFlavor from './pages/AddFlavor/AddFlavor';
 
 
@@ -42,6 +43,7 @@ function App() {
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Cadastro/>} />
             <Route path='/edit' element={<Editar/>} />
+            <Route path='/edit/:id' element={<EditarSabor/>} />
             <Route path='/edit/addFlavor' element={<AddFlavor/>} />
           </Routes>
         </BrowserRouter>
