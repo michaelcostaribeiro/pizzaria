@@ -1,17 +1,23 @@
+// hooks
 import { useState } from 'react'
-import styles from './AddFlavor.module.css'
 import { db } from '../../firebase/config'
 import { addDoc, collection } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
+
+// css
+import styles from './AddFlavor.module.css'
+
 
 const AddFlavor = () => {
   // const itemRef = useRef(null)
   const [itemName, setItemName] = useState('')
   const [ingredient, setIngredient] = useState('')
-  const [ingredients, setIngredients] = useState(['catupiry','frango','queijo','batata','banana'])
+  const [ingredients, setIngredients] = useState([])
   const [preco, setPreco] = useState('')
   const [urlImagem, setUrlImagem] = useState('')
 
   const [itemType, setItemType] = useState('pizza')
+  const navigate = useNavigate('')
   
   const addIngredients = async (e) =>{
     e.preventDefault()
@@ -48,6 +54,7 @@ const AddFlavor = () => {
     }catch(error){
       console.error('Error adding document:', error)
     }
+    navigate('/edit')
   }
 
 
@@ -62,23 +69,27 @@ const AddFlavor = () => {
         </select>
 
         <label htmlFor='itemName'>Qual vai ser o nome do sabor da {itemType}?</label>
-        <input type="text" id="itemName" value={itemName} onChange={(e)=>setItemName(e.target.value)} />
+        <input autoComplete='off' type="text" id="itemName" value={itemName} onChange={(e)=>setItemName(e.target.value)} />
 
         {itemType === 'pizza' &&
           <>
             <label htmlFor='ingredients'>Quais ingredientes irão na pizza?</label>
             <div className={styles.addIngredients} >
-              <input type="text" id='ingredients' value={ingredient} onChange={(e)=>setIngredient(e.target.value)} />
+              <input autoComplete='off' type="text" id='ingredients' value={ingredient} onChange={(e)=>setIngredient(e.target.value)} />
               <button onClick={(e) => addIngredients(e)}>Adicionar</button>
             </div>
           </>
         }
 
         <label htmlFor='preco' >Quanto irá custar?</label>
-        <input type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
+        <input autoComplete='off' type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
 
-        <label htmlFor='url'>Adicione a url de uma imagem para ilustrar o sabor:</label>
-        <input type="text" id="url" value={urlImagem} onChange={(e) => setUrlImagem(e.target.value)} />
+        { itemType === 'pizza' &&
+          <>
+            <label htmlFor='url'>Adicione a url de uma imagem para ilustrar o sabor:</label>
+            <input autoComplete='off' type="text" id="url" value={urlImagem} onChange={(e) => setUrlImagem(e.target.value)} />
+          </>
+        }
 
         {itemType === 'pizza' &&
         <>

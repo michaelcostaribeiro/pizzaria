@@ -1,0 +1,18 @@
+.Menu {
+    margin: auto;
+    max-width: 90%;
+    text-align: center;
+}
+.Menu button,.Menu input[type='submit']{
+    border: none;
+    display: block;
+    background-color: green;
+    width: fit-content;
+    margin:.5em auto;
+    padding: .4em .8em;
+    font-size: 1.25em;
+    border-radius: .5em;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}

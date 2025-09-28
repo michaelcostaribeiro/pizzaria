@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';
 
 
+
 const Cadastro = () => {
     const [displayName, setDisplayName] = useState('')
     const [email, setEmail] = useState('')
@@ -54,7 +55,6 @@ const Cadastro = () => {
 
         console.log(email)
         console.log(password)
-        return 
     }
 
 

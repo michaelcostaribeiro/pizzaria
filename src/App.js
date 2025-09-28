@@ -1,5 +1,5 @@
 // hooks
-import { Routes,Route, BrowserRouter} from 'react-router-dom'
+import { Routes,Route, BrowserRouter, Navigate} from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 
@@ -14,13 +14,16 @@ import './App.css';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/Cadastro';
+import Editar from './pages/editar/Editar';
+import EditarSabor from './pages/editarSabor/EditarSabor';
+import AddFlavor from './pages/AddFlavor/AddFlavor';
+import Menu from './pages/menu/Menu';
+import Cart from './pages/cart/Cart';
 
 // context
 import { AuthProvider } from './context/context';
 import { auth } from './firebase/config';
-import Editar from './pages/editar/Editar';
-import EditarSabor from './pages/editarSabor/EditarSabor';
-import AddFlavor from './pages/AddFlavor/AddFlavor';
+import { CartProvider } from './context/cartContext';
 
 
 function App() {
@@ -36,18 +39,24 @@ function App() {
   return (
     <>
       <AuthProvider value={{ user }}>
-        <BrowserRouter>
-          <Header/>
-          <Routes>
-            <Route path='/' element={<Home/>} />
-            <Route path='/login' element={<Login/>} />
-            <Route path='/register' element={<Cadastro/>} />
-            <Route path='/edit' element={<Editar/>} />
-            <Route path='/edit/:id' element={<EditarSabor/>} />
-            <Route path='/edit/addFlavor' element={<AddFlavor/>} />
-          </Routes>
-        </BrowserRouter>
-        <Footer/>
+        <CartProvider>
+
+        
+          <BrowserRouter>
+            <Header/>
+            <Routes>
+              <Route path='/' element={<Home/>} />
+              <Route path='/menu' element={<Menu/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+              <Route path='/login' element={user ? <Navigate to={'/'}/> : <Login />} />
+              <Route path='/register' element={user ? <Navigate to={'/'}/>: <Cadastro />} />
+              <Route path='/edit' element={user ? user && user.displayName === 'admin' && <Editar/> : <Navigate to={'/'}/>} />
+              <Route path='/edit/:id' element={user ? user && user.displayName === 'admin' && <EditarSabor /> : <Navigate to={'/'} />} />
+              <Route path='/edit/addFlavor' element={user ? user && user.displayName === 'admin' && <AddFlavor /> : <Navigate to={'/'} />} />
+            </Routes>
+          </BrowserRouter>
+          <Footer/>
+        </CartProvider>
       </AuthProvider>
     </>
   );

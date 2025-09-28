@@ -1,4 +1,4 @@
-.editarSabor{
+.editarSabor {
     max-width: 90%;
     margin: auto;
     text-align: center;
@@ -6,4 +6,50 @@
     flex-direction: column;
     align-items: center;
     gap: .5em;
+}
+
+.editarSabor form {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+    padding: 1em 1em;
+    background-color: #cccccc;
+}
+
+.editarSabor input[type='submit'] {
+    padding: .25em .75em;
+}
+
+.editarSabor input[type='text'],
+.editarSabor input[type='number'],
+.editarSabor button {
+    padding: .25em .5em;
+    width: 90%;
+}
+
+.addIngredients {
+    display: flex;
+    gap: .25em;
+}
+
+.flavorsList {
+    list-style: none;
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+    max-width: 90%;
+    justify-content: center;
+}
+
+.flavorsList li {
+    background-color: #4CAF50;
+    padding: .25em;
+    border-radius: .25em;
+}
+
+.flavorsList i {
+    display: inline;
 }
