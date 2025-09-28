@@ -15,7 +15,7 @@ const Menu = () => {
         <div className={styles.Menu + " flex1"}>
             {!tamanhoPizza &&
                 <>
-                    <h1>Você deseja uma pizza grande ou brotinho?</h1>
+                <h1 className={styles.MenuTitle }>Você deseja uma pizza grande ou brotinho?</h1>
                     <button onClick={() => setTamanhoPizza('grande')}>Pizza grande</button>
                     <button onClick={() => setTamanhoPizza('brotinho')}>Pizza brotinho</button>
                 </>

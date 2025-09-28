@@ -3,7 +3,7 @@ import styles from './Cadastro.module.css'
 
 // hooks
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';
 
 
@@ -59,8 +59,8 @@ const Cadastro = () => {
 
 
   return (
-    <div className={styles.back}>
-        <form onSubmit={handleSubmit}>
+    <div className={styles.formContainer}>
+        <form onSubmit={handleSubmit} className={styles.registerForm}>
             <h2>Cadastre-se com seu email e senha!</h2>
             <label htmlFor='nickname'>Nickname:</label>
               <input maxLength={10} id='nickname' type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
@@ -73,7 +73,8 @@ const Cadastro = () => {
             <input type="submit" value="Cadastrar" />
             {error && <p className='error'>{error}</p>}
         </form>
-
+        <Link className='back' to='/' />
+        
     </div>
   )
 }

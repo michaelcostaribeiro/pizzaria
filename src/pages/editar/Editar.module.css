@@ -10,28 +10,31 @@
     flex-direction: column;
     align-items: center;
     gap: .5em;
-
+    
 }
 
 .itemsToEdit {
+    color: #212121;
     list-style: none;
     width: 100%;
 }
 
 .addFlavorButton {
     border: 1px solid #212121;
-    background-color: #D32F2F;
-    color: #212121;
+    background-color: #db0808;
+    color: #ede3d4;
+    text-shadow: 0 0 5px rgba(0, 0, 0);
     font-size: 1.25em;
-    padding: .5em .25em;
+    padding: .5em 1em;
     text-decoration: none;
     border-radius: .5em;
     transition: .25s;
 }
 
 .addFlavorButton:hover {
-    background-color: #212121;
-    color: #D32F2F;
+    background-color: #ede3d4;
+    text-shadow: none;
+    color: #db0808;
 }
 
 .item {
@@ -88,7 +91,9 @@
 .itemIngredients ul li {
     border-radius: .5em;
     padding: .1em .2em;
-    background-color: #D32F2F;
+    background-color: #db0808;
+    color: #ede3d4;
+    text-shadow: 0 0 2px rgba(0, 0, 0);
     border: 1px solid #212121;
     display: flex;
     align-items: center;
@@ -100,6 +105,12 @@
 .item i {
     font-size: 2em;
     min-width: 10%;
+    color: #212121;
+    transition: .25s;
+    cursor: pointer;
+}
+.item i:hover {
+    color: #db0808;
 }
 
 .itemButtons {

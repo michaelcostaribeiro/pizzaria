@@ -59,8 +59,8 @@ const AddFlavor = () => {
 
 
   return (
-    <div className={styles.addFlavor}>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.addFlavorContainer}>
+      <form onSubmit={handleSubmit} className={styles.addFlavor}>
         <h2>Adicione novos sabores!</h2>
         <label htmlFor='itemType'>Você deseja adicionar um sabor para pizza ou borda ?</label>
         <select  id='itemType' value={itemType} onChange={(e) => setItemType(e.target.value)} >

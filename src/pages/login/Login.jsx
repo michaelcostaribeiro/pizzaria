@@ -2,9 +2,7 @@
 import styles from './Login.module.css'
 
 // hooks
-import { auth } from '../../firebase/config';
 import { useState } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';
 

@@ -1,19 +1,41 @@
 .Home{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: auto;
-    flex:1
+    flex:1;
+    gap: 1.5em;
+    text-align: center;
+    max-width: 100%;
 }
-.Home a{
-    background-color: red;
+
+.HomeTitleFocus{
+    background-color:rgba(0, 0, 0, 0.2);
+    padding: 1em 0;
+}
+.HomeTitle{
+    margin: auto;
+    max-width: 90%;
+    text-shadow: 0 0 10px black;
+}
+.Home h1 {
+    text-transform: uppercase;
+    color: #db0808;
+    font-size: 2.2em;
+}
+.HomeTitle h2,.Home a{
+    color: #ede3d4;
+}
+
+.Home a {
+    background-color: #db0808;
     text-decoration: none;
-    max-width: 80%;
     font-size: 1.5em;
     text-align: center;
-    margin: auto;
-    padding: .75em;
+    margin: 0 auto;
+    padding: .5em 1em;
     border-radius: .5em;
-    border: 1px solid black;
-    color: white;
-    text-shadow: 2px 2px 4px black;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 }

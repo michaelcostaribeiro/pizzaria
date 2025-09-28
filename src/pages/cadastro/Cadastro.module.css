@@ -1,31 +1,37 @@
-.back{
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: #1a1a1ab4;
-    width: 100%;
-    height: 100%;
-
+.formContainer{
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
+    z-index: 2;
 }
-.back form {
+.registerForm {
+    z-index: 3;
+    color: #212121;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 2.5em 1em;
-    background-color: white;
+    background-color: #ede3d4;
     width: 80%;
     min-height: 30%;
     gap: .5em;
+    border-radius: .5em;
+    box-shadow: 3px 3px 7px 0px #00000045;
 }
 
-.back h2{
+.registerForm h2{
     font-size: 2em;
     text-align: center;
 }
-.back input{
+.registerForm label {
+    font-size: 1.1em;
+}
+.registerForm input{
     width: 100%;
+    font-size: 1.1em;
     padding: .2em .1em;
 }
+
+
