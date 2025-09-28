@@ -6,6 +6,8 @@ import { useAuthValue } from '../../context/context'
 import { NavLink } from 'react-router-dom'
 import useAuthentication from '../../hooks/useAuthentication'
 
+import bigIcon from '../../assets/big-icon-no-text.png'
+
 const Header = () => {
   const {user} = useAuthValue();
   const {logout} = useAuthentication();
@@ -14,9 +16,16 @@ const Header = () => {
 
   return (
   <div className={styles.NavHeader}>
-        <NavLink to='/'>Pizz<span>aria</span></NavLink>
-      {user && <p>LU:{user.displayName}</p>}
-        {!user && <p>UL</p>}
+      <NavLink to='/'>
+      <div className={styles.NavIcon}>
+        <img src={bigIcon} alt="navIcon" className={styles.navIconImage}/>
+          <div className={styles.NavText}>
+          <p>Pensou</p>
+          <p><b>Pizzou!</b></p>
+        </div>
+      </div></NavLink>
+      {/* {user && <p>LU:{user.displayName}</p>}
+        {!user && <p>UL</p>} */}
       <nav>
         <NavLink to='/cart'><i className="fa-solid fa-cart-shopping"></i></NavLink>
         <NavLink to='/menu'><i className="fa-solid fa-pizza-slice"></i></NavLink>

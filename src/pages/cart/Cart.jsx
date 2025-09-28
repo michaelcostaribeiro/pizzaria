@@ -19,6 +19,10 @@ const Cart = () => {
         }
     }
 
+    const somatotal = () =>{
+        setPrecoTotal(precoTotal + 5)
+    }
+
 
     useEffect(()=>{
         const calcTotal = () => {
@@ -36,9 +40,9 @@ const Cart = () => {
         <ul>
             {cart.map((i)=>{
                 return <li key={i.id}>
-                    <h3>Item número: {i.id} </h3>
                     <div className={styles.itemBlock}>
                         <div>
+                            <h3>Item número: {i.id} </h3>
                             <p>Pizza: {i.tamanho}</p>
                             <p>1/2 {i.primeiraMetade.itemName} 1/2 {i.segundaMetade.itemName} </p>
                             <p>Borda: {i.borda.itemName}</p>
@@ -52,7 +56,10 @@ const Cart = () => {
         </ul>
         <div className={styles.totalBlock}>
             <p>Preço total da compra: R$ {precoTotal}</p>
-            <button onClick={(e) => e.preventDefault()}>Finalizar Compra</button>
+            <button onClick={(e) => {
+                e.preventDefault()
+                  somatotal()
+                }}>Finalizar Compra</button>
         </div>
 
 

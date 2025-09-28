@@ -1,5 +1,5 @@
 // hooks
-import { Routes,Route, BrowserRouter, Navigate} from 'react-router-dom'
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';
 import { useState, useEffect } from 'react';
 
@@ -33,7 +33,7 @@ function App() {
     onAuthStateChanged(userAuthentication, (user) => {
       setUser(user);
     })
-  },[userAuthentication])
+  }, [userAuthentication])
 
 
   return (
@@ -41,21 +41,23 @@ function App() {
       <AuthProvider value={{ user }}>
         <CartProvider>
 
-        
+
           <BrowserRouter>
-            <Header/>
+            <Header />
             <Routes>
-              <Route path='/' element={<Home/>} />
-              <Route path='/menu' element={<Menu/>}/>
-              <Route path='/cart' element={<Cart/>}/>
-              <Route path='/login' element={user ? <Navigate to={'/'}/> : <Login />} />
-              <Route path='/register' element={user ? <Navigate to={'/'}/>: <Cadastro />} />
-              <Route path='/edit' element={user ? user && user.displayName === 'admin' && <Editar/> : <Navigate to={'/'}/>} />
+              <Route path='/' element={<Home />} />
+              <Route path='/menu' element={<Menu />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/login' element={user ? <Navigate to={'/'} /> : <Login />} />
+              <Route path='/register' element={user ? <Navigate to={'/'} /> : <Cadastro />} />
+              <Route path='/edit' element={user ? user && user.displayName === 'admin' && <Editar /> : <Navigate to={'/'} />} />
               <Route path='/edit/:id' element={user ? user && user.displayName === 'admin' && <EditarSabor /> : <Navigate to={'/'} />} />
               <Route path='/edit/addFlavor' element={user ? user && user.displayName === 'admin' && <AddFlavor /> : <Navigate to={'/'} />} />
             </Routes>
           </BrowserRouter>
-          <Footer/>
+          <div className='background'>
+          </div>
+          <Footer />
         </CartProvider>
       </AuthProvider>
     </>

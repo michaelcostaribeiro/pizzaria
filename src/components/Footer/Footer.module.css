@@ -2,6 +2,7 @@
     text-align: center;
     padding: .5em 0;
     width: 100%;
+    background-color: #33333385;
 }
 
 .Footer p {
@@ -13,7 +14,6 @@
 .Footer p,
 .Footer span,
 .Footer i {
-    background-color: #333;
     color: #fff;
     font-size: .7em;
 }

@@ -2,30 +2,50 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
-    padding: 1em;
+    padding: .35em 1em;
     
     position: sticky;
     top: 0;
     font-size: 1.25em;
     max-width: 100vw;
-    background-color: #d1d1d13f;
-    backdrop-filter: blur(5px);
+    background-color: #44734bab;
+    backdrop-filter: blur(2px);
 
-    
-
-    a,i{
-        text-decoration: none;
-        color: black;
-        transition: .5s;
-    }
-    a:hover,i:hover{
-        color: orange;
-    }
-    span{
-        text-transform: uppercase;
-    }
+}
+.NavHeader a,i {
+    text-decoration: none;
+    color: #ede3d4;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.205));
+    transition: .5s;
+}
+.NavHeader a:hover, i:hover {
+    color: orange;
+}
+.NavHeader span {
+    text-transform: uppercase;
 }
 .NavHeader nav {
     display: flex;
+    align-items: center;
     gap: .5em;
+    font-size: 1.1em;
+}
+.NavIcon{
+    display: flex;
+    align-items: center;
+    gap: .25em;
+    text-align: center;
+}
+.NavText p{
+    font-family: 'Lora', sans-serif;
+    font-size: .7em;
+    color: #ede3d4;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.205);
+}
+.NavText p b{
+    color: #ede3d4;
+    font-size: 1.5em;
+}
+.navIconImage{
+    max-width: 2.5em;
 }

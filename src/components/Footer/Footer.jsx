@@ -8,7 +8,6 @@ const Footer = () => {
         <li><i className="fa-brands fa-linkedin"></i></li>
         <li><i className="fa-brands fa-github"></i></li>
       </ul>
-      <p>Todos os meus projetos e seus detalhes estão aqui.</p>
       <p>© Copyright <span>Michael Costa Ribeiro.</span> Todos os direitos reservados.</p>
     </div>
   )
