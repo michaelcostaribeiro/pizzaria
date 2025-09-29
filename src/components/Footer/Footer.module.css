@@ -33,3 +33,10 @@
 .Footer ul li:hover {
     color: rgb(0, 0, 182);
 }
+
+/* tablets */
+@media (min-width: 768px) {
+    .Footer{
+        font-size: 1.05em;
+    }
+}

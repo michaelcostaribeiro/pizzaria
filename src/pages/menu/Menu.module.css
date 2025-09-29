@@ -41,4 +41,8 @@
         max-width: 650px;
 
     }
+
+    .Menu button {
+        font-size: 1.5em;
+    }
 }

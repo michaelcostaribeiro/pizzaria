@@ -53,3 +53,7 @@
 .flavorsList i {
     display: inline;
 }
+/* tablets */
+@media (min-width: 768px) {
+    
+}
