@@ -7,13 +7,9 @@
     flex:1;
     gap: 1.5em;
     text-align: center;
-    max-width: 100%;
+    width: 100%;
 }
 
-.HomeTitleFocus{
-    background-color:rgba(0, 0, 0, 0.2);
-    padding: 1em 0;
-}
 .HomeTitle{
     margin: auto;
     max-width: 90%;

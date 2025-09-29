@@ -59,7 +59,7 @@ const Cadastro = () => {
 
 
   return (
-    <div className={styles.formContainer}>
+      <div className={styles.formContainer + " container flex1 "}>
         <form onSubmit={handleSubmit} className={styles.registerForm}>
             <h2>Cadastre-se com seu email e senha!</h2>
             <label htmlFor='nickname'>Nickname:</label>

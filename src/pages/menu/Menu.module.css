@@ -1,29 +1,44 @@
 .Menu {
     margin: auto;
-    width: 90%;
+    width: 100%;
     text-align: center;
 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 0;
+    padding: 1em 0;
 }
+
+.Menu>* {
+    max-width: 90%;
+}
+
 .MenuTitle {
     margin-bottom: .5em;
 }
-.Menu button,.Menu input[type='submit']{
+
+.Menu button,
+.Menu input[type='submit'] {
     border: none;
     display: block;
     background-color: #1b6927;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.508);
     color: #ede3d4;
     width: fit-content;
-    margin:.25em auto;
+    margin: .25em auto;
     padding: .5em 1em;
     font-size: 1.25em;
     border-radius: .5em;
     text-decoration: none;
     text-transform: uppercase;
 
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+    .Menu>* {
+        max-width: 650px;
+
+    }
 }

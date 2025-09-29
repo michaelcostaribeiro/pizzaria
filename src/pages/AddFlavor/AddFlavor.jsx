@@ -59,7 +59,7 @@ const AddFlavor = () => {
 
 
   return (
-    <div className={styles.addFlavorContainer}>
+    <div className=' container flex1 focus'>
       <form onSubmit={handleSubmit} className={styles.addFlavor}>
         <h2>Adicione novos sabores!</h2>
         <label htmlFor='itemType'>Você deseja adicionar um sabor para pizza ou borda ?</label>

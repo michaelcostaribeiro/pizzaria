@@ -1,10 +1,6 @@
-.addFlavorContainer{
-    flex: 1;
-    width: 90%;
-    margin: auto;
-}
 .addFlavor{
-    max-width: 100%;
+    width: 90%;
+    max-width: 400px;
     margin: auto;
     text-align: center;
     display: flex;

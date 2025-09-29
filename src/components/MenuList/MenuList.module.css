@@ -32,8 +32,12 @@
 }
 .MenuList tr{
     display: flex;
+    border-bottom: 1px solid rgb(160 160 160);
 }
 .MenuList tr > :nth-child(1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 15%;
 }
 .MenuList tr > :nth-child(2){
@@ -42,10 +46,11 @@
 .MenuList tr > :nth-child(3){
     width: 25%;
 }
-.MenuList td, th{
-    padding: .75em 0;
-    border-bottom: 1px solid rgb(160 160 160);
-}
 .MenuList label, .MenuList th{
     color: #212121;
+}
+.MenuList label{
+    display: block;
+    cursor: pointer;
+    padding: .75em 0;
 }

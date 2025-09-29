@@ -10,7 +10,7 @@ const Home = () => {
   
   return (
     <div className= {styles.Home + " flex1"}>
-        <div className={styles.HomeTitleFocus}>
+        <div className='focus'>
           <div className={styles.HomeTitle}>
             <h1>Bateu a fome?</h1>
             <h2>Não perca tempo e peça ja a uma pizza fresquinha conosco!</h2>

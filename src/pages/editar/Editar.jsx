@@ -33,7 +33,7 @@ const Editar = () => {
 
 
   return loading ? <div className='loading'><p>Carregando!</p></div> : (
-    <div className={styles.editContainer}>
+    <div className="container flex1 focus">
       <div className={styles.edit}>
         <h2>Adicione, edite ou remova os sabores de pizzas e bordas!</h2>
         <NavLink className={styles.addFlavorButton} to={'./AddFlavor'}>Adicionar um novo sabor!</NavLink>

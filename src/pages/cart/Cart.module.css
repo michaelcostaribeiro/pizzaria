@@ -1,18 +1,30 @@
+.CartContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .Cart{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: auto;
+    text-align: center;
+    width: 100%;
 }
 
 .Cart ul {
-    padding: 1em 0;
+    width: 100%;
+    max-width: 400px;
 }
 .Cart ul li {
     margin-bottom: 1em;
     background-color: #d1d1d1;
     padding: .75em 1em;
     list-style: none;
+    width: fit-content;
+    margin: 1em auto;
 }
 
 .itemBlock{
@@ -20,6 +32,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: .9em;
+    gap: .5em;
     color: #212121;
 }
 .itemBlock i {
@@ -38,10 +51,37 @@
 }
 
 .totalBlock p{
-    margin-bottom: 1em;
+    margin: 1em auto;
+    font-size: 1.25em;
+    text-shadow: 0 0 10px black;
 }
 .totalBlock button{
     padding: .5em .25em;
     font-size: 1.1em;
     text-transform: uppercase;
+}
+
+/* tablets */
+@media (min-width: 768px) {
+    .itemBlock{
+        gap: .75em;
+    }
+    .itemBlock h3{
+        font-size: 1.5em;
+        
+    }
+    .itemBlock p{
+        font-size: 1.25em;
+    }
+    .itemBlock i{
+        font-size: 2em;
+    }
+        .totalBlock p {
+            margin: 1em auto;
+            font-size: 1.25em;
+        }
+}
+/* desktops */
+@media (min-width: 1024px) {
+
 }

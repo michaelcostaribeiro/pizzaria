@@ -1,10 +1,5 @@
 .formContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
     z-index: 2;
-    flex: 1;
 }
 
 .loginForm{
@@ -15,6 +10,7 @@
     justify-content: center;
     padding: 2.5em 1em;
     width: 80%;
+    max-width: 400px;
     min-height: 30%;
     gap: .5em;
     z-index: 2;
@@ -42,3 +38,4 @@
     text-align: center;
     color: rgb(156, 0, 0);
 }
+

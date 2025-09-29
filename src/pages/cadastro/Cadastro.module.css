@@ -1,9 +1,4 @@
 .formContainer{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
     z-index: 2;
 }
 .registerForm {
@@ -15,6 +10,7 @@
     padding: 2.5em 1em;
     background-color: #ede3d4;
     width: 80%;
+    max-width: 400px;
     min-height: 30%;
     gap: .5em;
     border-radius: .5em;

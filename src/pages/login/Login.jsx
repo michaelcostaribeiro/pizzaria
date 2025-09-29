@@ -39,7 +39,7 @@ const Login = () => {
     
 
   return (
-    <div className={styles.formContainer}  >
+      <div className={styles.formContainer + " container flex1 "}  >
         <form className={styles.loginForm} onSubmit={handleSubmit}>
             <h2>Entre com seu login e senha!</h2>
             <label htmlFor='emailInput'>Login:</label>

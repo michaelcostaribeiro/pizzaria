@@ -19,9 +19,6 @@ const Cart = () => {
         }
     }
 
-    const somatotal = () =>{
-        setPrecoTotal(precoTotal + 5)
-    }
 
 
     useEffect(()=>{
@@ -35,31 +32,30 @@ const Cart = () => {
 
 
   return (
-      <div className={styles.Cart + " flex1"}>
-        <h1>Itens no carrinho: </h1>
-        <ul>
-            {cart.map((i)=>{
-                return <li key={i.id}>
-                    <div className={styles.itemBlock}>
-                        <div>
-                            <h3>Item número: {i.id} </h3>
-                            <p>Pizza: {i.tamanho}</p>
-                            <p>1/2 {i.primeiraMetade.itemName} 1/2 {i.segundaMetade.itemName} </p>
-                            <p>Borda: {i.borda.itemName}</p>
-                            <p>Preço final: R$ {calcPrecoItem(i)}</p>
+      <div className="container flex1 ">
+          <div className={styles.Cart +" focus "}>
+            <h1>Itens no carrinho: </h1>
+            <ul>
+                {cart.map((i)=>{
+                    return <li key={i.id}>
+                        <div className={styles.itemBlock}>
+                            <div>
+                                <h3>Item número: {i.id} </h3>
+                                <p>Pizza: {i.tamanho}</p>
+                                <p>1/2 {i.primeiraMetade.itemName} 1/2 {i.segundaMetade.itemName} </p>
+                                <p>Borda: {i.borda.itemName}</p>
+                                <p>Preço final: R$ {calcPrecoItem(i)}</p>
+                            </div>
+                            <i className="fa-solid fa-xmark"></i>
                         </div>
-                        <i className="fa-solid fa-xmark"></i>
-                    </div>
-                </li>
-            })}
+                    </li>
+                })}
             <hr />
-        </ul>
-        <div className={styles.totalBlock}>
-            <p>Preço total da compra: R$ {precoTotal}</p>
-            <button onClick={(e) => {
-                e.preventDefault()
-                  somatotal()
-                }}>Finalizar Compra</button>
+            </ul>
+            <div className={styles.totalBlock}>
+                <p>Preço total da compra: R$ {precoTotal}</p>
+                <button onClick={(e) => e.preventDefault()}>Finalizar Compra</button>
+            </div>
         </div>
 
 
