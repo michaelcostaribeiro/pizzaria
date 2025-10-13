@@ -49,7 +49,7 @@
 .error {
   text-align: center;
   background-color: lightcoral;
-  padding: .5em 0;
+  padding: .5em;
   border-radius: .5em;
   border: 1px black solid;
 }

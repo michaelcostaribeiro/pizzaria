@@ -9,7 +9,6 @@ import styles from './AddFlavor.module.css'
 
 
 const AddFlavor = () => {
-  // const itemRef = useRef(null)
   const [itemName, setItemName] = useState('')
   const [ingredient, setIngredient] = useState('')
   const [ingredients, setIngredients] = useState([])
@@ -17,6 +16,7 @@ const AddFlavor = () => {
   const [urlImagem, setUrlImagem] = useState('')
 
   const [itemType, setItemType] = useState('pizza')
+  const [error,setError] = useState('')
   const navigate = useNavigate('')
   
   const addIngredients = async (e) =>{
@@ -46,13 +46,18 @@ const AddFlavor = () => {
       }
       
     }
-    console.log(item)
-    
+    if (urlImagem.length>0) {
+      try{
+        new URL(urlImagem)
+      }catch(error){
+        setError('URL Inválida')
+        return
+      }
+    }
     try {
-      const docRef = await addDoc(collection(db, 'flavors'), item)
-      console.log('document written with ID: ', docRef.id)
+      await addDoc(collection(db, 'flavors'), item)
     }catch(error){
-      console.error('Error adding document:', error)
+      setError(error.message)
     }
     navigate('/edit')
   }
@@ -69,7 +74,7 @@ const AddFlavor = () => {
         </select>
 
         <label htmlFor='itemName'>Qual vai ser o nome do sabor da {itemType}?</label>
-        <input autoComplete='off' type="text" id="itemName" value={itemName} onChange={(e)=>setItemName(e.target.value)} />
+        <input required autoComplete='off' type="text" id="itemName" value={itemName} onChange={(e)=>setItemName(e.target.value)} />
 
         {itemType === 'pizza' &&
           <>
@@ -82,12 +87,12 @@ const AddFlavor = () => {
         }
 
         <label htmlFor='preco' >Quanto irá custar?</label>
-        <input autoComplete='off' type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
+        <input required autoComplete='off' type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
 
         { itemType === 'pizza' &&
           <>
             <label htmlFor='url'>Adicione a url de uma imagem para ilustrar o sabor:</label>
-            <input autoComplete='off' type="text" id="url" value={urlImagem} onChange={(e) => setUrlImagem(e.target.value)} />
+            <input  autoComplete='off' type="text" id="url" value={urlImagem} onChange={(e) => setUrlImagem(e.target.value)} />
           </>
         }
 
@@ -104,6 +109,7 @@ const AddFlavor = () => {
         </>
         }
         <input type="submit" value="Adicionar sabor!" />
+        {error && <p className='error'>{error}</p>}
       </form>
     </div>
   )

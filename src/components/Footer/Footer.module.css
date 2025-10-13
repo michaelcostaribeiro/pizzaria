@@ -10,12 +10,11 @@
 }
 
 
-.Footer,
-.Footer p,
-.Footer span,
 .Footer i {
-    color: #fff;
     font-size: .8em;
+}
+.Footer p{
+    color: #fff;
 }
 
 .Footer ul {
@@ -29,9 +28,8 @@
 .Footer ul li {
     transition: .25s;
 }
-
-.Footer ul li:hover {
-    color: rgb(0, 0, 182);
+.Footer i:hover {
+    color: #3949ab;
 }
 
 /* tablets */

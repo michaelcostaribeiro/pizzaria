@@ -39,3 +39,12 @@
     color: rgb(156, 0, 0);
 }
 
+.adminCredentials {
+    background-color: white;
+    padding: .5em;
+    border-radius: .25em;
+}
+
+.adminCredentials p {
+    padding: .25em 0;
+}

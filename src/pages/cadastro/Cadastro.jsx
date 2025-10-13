@@ -2,7 +2,7 @@
 import styles from './Cadastro.module.css'
 
 // hooks
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import useAuthentication from '../../hooks/useAuthentication';
 
@@ -14,69 +14,57 @@ const Cadastro = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
-
     const navigate = useNavigate('')
+    const { createUser, error: firebaseError } = useAuthentication();
 
-    const {createUser} = useAuthentication();
+    useEffect(() => {
+        setError(firebaseError)
+    }, [firebaseError])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setError(null);
 
-        
-        try{
-            if(displayName === 'admin'){
-                setError('Nickname inválido!')
-                return
+        if (displayName === 'admin') {
+            setError('Nickname inválido!')
+            return
+        }
+        if (password === confirmPassword) {
+            const user = {
+                displayName,
+                email,
+                password
             }
-            if(password === confirmPassword){
-                const user = {
-                    displayName,
-                    email,
-                    password
-                }
-                createUser(user)
-                
-    
-                setEmail('')
-                setPassword('')
-                setConfirmPassword('')
-                navigate('/')
-            }else{
-                setError('As senhas não estão iguais!')
-                return
-            }
-
-        }catch(firebaseError){
-            console.log('Erro ao cadastrar usuário', firebaseError.message)
-            setError(firebaseError.message)
+            createUser(user)
+            setEmail('')
+            setPassword('')
+            setConfirmPassword('')
+            setError(firebaseError)
+        } else {
+            setError('As senhas não estão iguais!')
+            return
         }
 
-
-        console.log(email)
-        console.log(password)
     }
 
+    return (
+        <div className={styles.formContainer + " container flex1 "}>
+            <form onSubmit={handleSubmit} className={styles.registerForm}>
+                <h2>Cadastre-se com seu email e senha!</h2>
+                <label htmlFor='nickname'>Nickname:</label>
+                <input maxLength={15} id='nickname' type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+                <label htmlFor='email'>Email:</label>
+                <input id='email' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <label htmlFor='password'>Senha:</label>
+                <input maxLength={20} id='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <label htmlFor='confirmPassword'>Confirme sua senha:</label>
+                <input maxLength={20} id='confirmPassword' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <input type="submit" value="Cadastrar" />
+                {error && <p className='error'>{error}</p>}
+            </form>
+            <Link className='back' to='/' />
 
-  return (
-      <div className={styles.formContainer + " container flex1 "}>
-        <form onSubmit={handleSubmit} className={styles.registerForm}>
-            <h2>Cadastre-se com seu email e senha!</h2>
-            <label htmlFor='nickname'>Nickname:</label>
-              <input maxLength={10} id='nickname' type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)}/>
-            <label htmlFor='email'>Email:</label>
-            <input id='email' type="text" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-            <label htmlFor='password'>Senha:</label>
-            <input maxLength={20} id='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <label htmlFor='confirmPassword'>Confirme sua senha:</label>
-            <input maxLength={20} id='confirmPassword' type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-            <input type="submit" value="Cadastrar" />
-            {error && <p className='error'>{error}</p>}
-        </form>
-        <Link className='back' to='/' />
-        
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Cadastro

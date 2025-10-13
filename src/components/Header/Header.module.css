@@ -29,7 +29,7 @@ i {
 }
 
 .NavHeader a:hover,
-i:hover {
+.NavHeader i:hover {
     color: orange;
 }
 

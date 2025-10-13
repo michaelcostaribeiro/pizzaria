@@ -8,8 +8,6 @@ export const useFetchDocument = () => {
         try{
             const flavorRef = doc(db,'flavors',id)
             const flavorSnap = await getDoc(flavorRef)
-    
-            console.log(flavorSnap)
 
             if(flavorSnap.exists()){
                 return ({id:flavorSnap.id,...flavorSnap.data()});

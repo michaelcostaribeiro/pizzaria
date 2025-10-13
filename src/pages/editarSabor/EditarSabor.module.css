@@ -1,7 +1,6 @@
 .editarSabor {
     max-width: 90%;
     margin: auto;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,6 +8,7 @@
 }
 
 .editarSabor form {
+    color: black;
     max-width: 100%;
     text-align: center;
     display: flex;
@@ -17,6 +17,26 @@
     gap: .5em;
     padding: 1em 1em;
     background-color: #cccccc;
+    border-radius: .25em;
+}
+.editarSabor h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+.editarSabor label {
+    font-size: 1.1em;
+}
+
+.editarSabor input {
+    width: 100%;
+    font-size: 1.1em;
+    padding: .2em .2em;
+}
+
+.editarSabor a {
+    text-align: center;
+    color: rgb(156, 0, 0);
 }
 
 .editarSabor input[type='submit'] {

@@ -22,9 +22,11 @@ const EditarSabor = () => {
     const [urlImagem, setUrlImagem] = useState('')
     const [ingredients, setIngredients] = useState('')
     const [ingredient, setIngredient] = useState('')
+    const [error, setError] = useState('')
 
     const addIngredients = async (e) => {
         e.preventDefault()
+
 
         setIngredients((prev) => [...prev, ingredient])
         setIngredient('')
@@ -54,6 +56,14 @@ const EditarSabor = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if (urlImagem.length > 0) {
+            try {
+                new URL(urlImagem)
+            } catch (error) {
+                setError('URL Inválida')
+                return
+            }
+        }
         const docRef = doc(db, 'flavors', id);
         if (itemType === 'pizza') {
             await updateDoc(docRef, {
@@ -77,7 +87,7 @@ const EditarSabor = () => {
     }
     return loading ? <div className='loading'><p>Carregando!</p></div> : (
         <div className={styles.editarSabor + " flex1"}>
-            <p>Editando o valor de {itemInicialState.itemName}({itemInicialState.itemType})</p>
+            <h2>Editando o valor de {itemInicialState.itemName}({itemInicialState.itemType})</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="itemName">Nome:</label>
                 <input autoComplete="off" type="text" id="itemName" value={itemName} onChange={(e) => setItemName(e.target.value)} />
@@ -91,7 +101,7 @@ const EditarSabor = () => {
                         </div>
                     </>
                 }
-                <label htmlFor="preco">Preco:</label>
+                <label htmlFor="preco">Preço:</label>
                 <input autoComplete="off" type="number" id="preco" value={preco} onChange={(e) => setPreco(e.target.value)} />
 
                 <label htmlFor="urlImagem">URL da Imagem:</label>
@@ -111,6 +121,7 @@ const EditarSabor = () => {
                     </>
                 }
                 <input type="submit" value="Editar" />
+                {error && <p className='error'>{error}</p>}
             </form>
         </div>
     )

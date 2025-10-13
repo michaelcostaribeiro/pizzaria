@@ -29,15 +29,12 @@ const MenuList = ({tamanho, setTamanho}) => {
         const chosenFlavor = [order, flavorObject]
         switch(chosenFlavor[0]) {
             case "primeiraMetade":
-                console.log(`primeira metade: ${chosenFlavor[1].itemName}`)
                 setPrimeiraMetade(chosenFlavor[1])
                 break
             case "segundaMetade":
-                console.log(`segunda metade: ${chosenFlavor[1].itemName}`)
                 setSegundaMetade(chosenFlavor[1])
                 break
                 case "borda":
-                console.log(`borda: ${chosenFlavor[1].itemName}`)
                 setBorda(chosenFlavor[1])
                 break
             default:
@@ -53,17 +50,6 @@ const MenuList = ({tamanho, setTamanho}) => {
 
     const handleSubmit = (e, tamanho) =>{
         e.preventDefault()
-        console.log(tamanho)
-
-        switch(tamanho){
-            case 'grande':
-                console.log('pizza grande escolhida!')
-                break
-            case 'brotinho':
-                console.log('pizza brotinho escolhida')
-                break
-            default:
-        }
 
         const pedido = {
             id: Math.floor(Math.random()*100_000),
@@ -72,7 +58,6 @@ const MenuList = ({tamanho, setTamanho}) => {
             segundaMetade,
             borda
         }
-        console.log(pedido)
 
         addToCart(pedido)
 
@@ -103,7 +88,7 @@ const MenuList = ({tamanho, setTamanho}) => {
                     if(p.itemType === 'pizza'){
                         return (
                             <tr key={p.id}>
-                                <td><input type="radio" name='primeiraMetade' id={`primeiraMetade,${p.id}`} value={p.id} onChange={() => handleChange(['primeiraMetade', p])} /></td>
+                                <td><input required type="radio" name='primeiraMetade' id={`primeiraMetade,${p.id}`} value={p.id} onChange={() => handleChange(['primeiraMetade', p])} /></td>
                                     <td><label htmlFor={`primeiraMetade,${p.id}`}>{p.itemName}</label></td>
                                 <td><label htmlFor={`primeiraMetade,${p.id}`}>{formattingPrice(p.preco)}</label></td>
                             </tr>
@@ -126,7 +111,7 @@ const MenuList = ({tamanho, setTamanho}) => {
                         if(p.itemType === 'pizza'){
                             return (
                                 <tr key={p.id}>
-                                    <td><input type="radio" name='segundaMetade' id={`segundaMetade,${p.id}`} value={p.id} onChange={() => handleChange(['segundaMetade', p])} /></td>
+                                    <td><input required type="radio" name='segundaMetade' id={`segundaMetade,${p.id}`} value={p.id} onChange={() => handleChange(['segundaMetade', p])} /></td>
                                     <td><label htmlFor={`segundaMetade,${p.id}`}>{p.itemName}</label></td>
                                     <td><label htmlFor={`segundaMetade,${p.id}`}>{formattingPrice(p.preco)}</label></td>
                                     
@@ -149,7 +134,7 @@ const MenuList = ({tamanho, setTamanho}) => {
                 {pizzaList.map((b) => {
                     if(b.itemType === 'borda'){
                         return <tr key={b.id}>
-                            <td><input type="radio" name="borda" id={`borda,${b.id}`} value={b.id} onChange={() => handleChange(['borda',b])} /></td>
+                            <td><input required type="radio" name="borda" id={`borda,${b.id}`} value={b.id} onChange={() => handleChange(['borda',b])} /></td>
                             <td><label htmlFor={`borda,${b.id}`}>{b.itemName}</label></td>
                             <td><label htmlFor={`borda,${b.id}`}>{formattingPrice(b.preco)}</label></td>
                         </tr>
